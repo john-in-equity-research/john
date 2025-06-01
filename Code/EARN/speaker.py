@@ -1,10 +1,9 @@
 import unicodedata
 import re
 
-
 def clean_person(name: str):
-    """ 
-    
+    """
+
         Works for both, first/last and full name !
 
          (clean_name("L.")              # → None
@@ -38,13 +37,13 @@ def clean_person(name: str):
 
 def identify_speaker(speaker_full_name: str):
     """
-    
+
       e.g. "Jones Jona L." (SEC) became {first_name: Jona, last_name: Jones} and full_name : Jones Jona L.
       and FMP e.g. reports "Jones Jona" => Searching full_name won't match !
       => That's why we are able to search a combination of first_name + last_name to retrieve the person instead
 
-    """ 
-    
+    """
+
     try:
         names = speaker_full_name.split(" ")
         last_name = clean_person(names[0].lower().title())
@@ -63,3 +62,26 @@ def identify_speaker(speaker_full_name: str):
         "last_name": last_name,
         "full_name": speaker_full_name,
     }
+
+
+# requires: en_core_md (see machine_learning.py)
+
+from .machine_learning import nlp
+
+def identify_person_company_relation(
+        pre_chunk: str, keep_rest=False
+):
+    """
+    
+     Identifies the company of an equity analysis by it's introductive pre chunk. 
+     Also returns the other ents, if wanted:
+
+    """
+    doc = nlp(pre_chunk)
+    orgs = [ent.text for ent in doc.ents if ent.label_ == "ORG"]
+    
+    if keep_rest:
+        return orgs, doc.ents
+        
+    return orgs
+    
