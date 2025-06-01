@@ -64,9 +64,9 @@ def identify_speaker(speaker_full_name: str):
     }
 
 
-# requires: en_core_md (see machine_learning.py)
+# requires: en_core_md (see Code/EARN/NLP.py)
+from .NLP import nlp
 
-from .machine_learning import nlp
 
 def identify_person_company_relation(
         pre_chunk: str, keep_rest=False
