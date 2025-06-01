@@ -1,5 +1,5 @@
 # john
-Equity Research; SEC;
+Sharing what I've learned on my way to prototype a startup idea; All code here is opensource under MIT.
 
 **Prototype**
 http://143.198.229.7/
