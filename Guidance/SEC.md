@@ -7,7 +7,11 @@ It might be helpful to start with a requests wrapper, as the SEC otherwise block
 
 Now you can get 10 responses/second, without a block.
 
-=> Example usage: response = Request("https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json", mail="private@private.com", company="Private").fetch()
+=> For JSON: Request("https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json").fetch()
+
+=> For HTM: Request("https://www.sec.gov/Archives/edgar/data/789019/000095017023035122/msft-20230630.htm").fetch(as_json=False)
+
+=> For XML: Request("https://www.sec.gov/Archives/edgar/data/789019/000118368112000024/xslF345X02/edgar.xml").fetch(as_json=False, block_XML=False)
 
 
 My tip: Don't use proxies. If you think there is a need, you most likely skipped the thinking part and went quick & dirty
