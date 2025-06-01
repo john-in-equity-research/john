@@ -1,4 +1,6 @@
 import requests
+from .speaker import identify_speaker
+
 
 def clean_earnings_calls_for_year(ticker, year, key):
     url = f"https://financialmodelingprep.com/api/v4/batch_earning_call_transcript/{ticker}?year={year}&apikey={key}"
@@ -24,15 +26,14 @@ def clean_earnings_call(data, **kwargs):
     transcript_cleaned = []
 
     for i, c in enumerate(transcript.split("\n")):
-
         split_two = c.split(":")
         speaker = split_two[0]
         merged = "".join(split_two[1:])
 
         transcript_cleaned.append(
             {
-                "speaker": speaker,
-                "text": merged.replace("’", "'").strip(" ")
+                "speaker": identify_speaker(speaker),
+                "text": merged.strip(" ")
             }
         )
 
@@ -44,3 +45,4 @@ def clean_earnings_call(data, **kwargs):
         "frame": f"{kwargs['year']}Q{quarter}",
         "transcript": transcript_cleaned
     }
+    
