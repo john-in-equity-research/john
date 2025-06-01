@@ -29,6 +29,9 @@ Open Source Datasets/Training:
 **Prototype**
 http://143.198.229.7/
 
+**Changelog/Work**
+http://143.198.229.7/changelog/
+
 **Main repo atm**
 https://gitlab2.cip.ifi.lmu.de/hemminger/ER
 (Will ship it into this one over-time)
