@@ -9,7 +9,7 @@ http://143.198.229.7/changelog/
 
 **Main repo atm**
 https://gitlab2.cip.ifi.lmu.de/hemminger/ER
-(Will ship it into this one over-time)
+(Not MIT; Will ship it into this one over-time)
 
 **Brainstorming**
 
