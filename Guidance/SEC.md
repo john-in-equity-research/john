@@ -2,7 +2,7 @@
 
 It might be helpful to start with a requests wrapper, as the SEC otherwise blocks you quickly.
 
-=> Therefore, I've created the Response class inside Guidance/sec.py
+=> Therefore, I've created the Response class inside Code/SEC/Response.py
 
 
 Now you can get 10 responses/second, without a block.
