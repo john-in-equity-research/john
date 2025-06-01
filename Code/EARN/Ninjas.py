@@ -5,8 +5,6 @@ def ninja_split_earnings_call(ticker, y, q, key):
      Using free account for 2024/25 transcripts, bypasses the transcript_split by handling it manually,
 
     """
-
-
     url = f"https://api.api-ninjas.com/v1/earningstranscript?ticker={ticker}&year={y}&quarter={q}"
     response = requests.get(url, headers={"X-Api-Key": key})
     response.raise_for_status()
@@ -33,4 +31,3 @@ def ninja_split_earnings_call(ticker, y, q, key):
         )
 
     return transcript_cleaned
-  
